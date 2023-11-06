@@ -12,13 +12,13 @@ function reducer(state = initialState, action) {
                 ...state,
                 users: action.payload
             }
-        break;
+        
         case GET_STUDENTS:
             return{
                 ...state,
                 students: action.payload
             }
-        break;
+        
         default: 
             return state;
     }

@@ -13,19 +13,38 @@ const Students = ()=>{
     return(
         <div>
             <h1>Students</h1>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>primer nombre</th>
+                            <th>segundo nombre</th>
+                            <th>edad</th>
+                            <th>acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
             {
                 students.map(Element=>{
                     return(
-                        <div>
-                            <h3>id:{Element.id}</h3>
-                            <h3>primer nombre:{Element.firtsName}</h3>
-                            <h3>primer nombre:{Element.lastName}</h3>
-                            <h3>primer nombre:{Element.age}</h3>
-                            <hr />
-                        </div>
+                        <tr key={Element.id}>
+                            <td>{Element.id}</td>
+                            <td>{Element.firtsName}</td>
+                            <td>{Element.lastName}</td>
+                            <td>{Element.age}</td>
+                            <td>
+                                <button>
+                                    <i className="fa-solid fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
                     )
                 })
             }
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 }
