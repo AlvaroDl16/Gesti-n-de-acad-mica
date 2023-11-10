@@ -1,10 +1,14 @@
 import React from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { postStudent } from "../../redux/actions/actions";
 
 const CreateStudent = ()=>{
 
+    const dispatch = useDispatch();
+
     const [input, setInput] = useState({
-        firstName:"",
+        firtsName:"",
         lastName:"",
         gender:"",
         age:"",
@@ -18,8 +22,10 @@ const CreateStudent = ()=>{
         })
     }
 
-    const handleSubmit = ()=>{
-        alert("hola");
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        dispatch(postStudent(input));
+        alert("estudiante creado");
     }
 
     return (
@@ -30,10 +36,40 @@ const CreateStudent = ()=>{
                 <legend>Datos del estudiante</legend>
                 <input 
                 type="text" 
-                value={input.firstName}
-                name="firstName"
+                value={input.firtsName}
+                name="firtsName"
                 placeholder="Nombre del estudiante"
                 onChange={handleInputChange} />
+                <br/>
+                <input 
+                type="text" 
+                value={input.lastName}
+                name="lastName"
+                placeholder="Apellido del estudiante"
+                onChange={handleInputChange} />
+                <br/>
+                <input 
+                type="text" 
+                value={input.gender}
+                name="gender"
+                placeholder="genero del estudiante"
+                onChange={handleInputChange} />
+                <br/>
+                <input 
+                type="text" 
+                value={input.age}
+                name="age"
+                placeholder="edad del estudiante"
+                onChange={handleInputChange} />
+                <br/>
+                <input 
+                type="text" 
+                value={input.email}
+                name="email"
+                placeholder="email del estudiante"
+                onChange={handleInputChange} />
+                <br/>
+                <button type="submit">Crear estudiante</button>
             </fieldset>
         </form>
         </div>

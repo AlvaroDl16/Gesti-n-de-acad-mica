@@ -4,6 +4,7 @@ const studentRouter = Router();
 
 studentRouter.post("/", async(req, res) => {
     const {firtsName, lastName, age, gender, email} = req.body;
+    
     try {
         const newStudent = await createStudent(firtsName, lastName, age, gender, email);
         res.status(200).json(newStudent);

@@ -4,8 +4,7 @@ import { getStudents } from "../../redux/actions/actions";
 
 const Students = ()=>{
     const dispatch = useDispatch();
-    const students = useSelector(state => state.students);
-
+    const hola = useSelector(state => state.students);
     useEffect(()=>{
         dispatch(getStudents())
     },[])
@@ -26,13 +25,13 @@ const Students = ()=>{
                     </thead>
                     <tbody>
             {
-                students.map(Element=>{
-                    return(
-                        <tr key={Element.id}>
-                            <td>{Element.id}</td>
-                            <td>{Element.firtsName}</td>
-                            <td>{Element.lastName}</td>
-                            <td>{Element.age}</td>
+                hola.length>=1 && hola.map(el=>{
+                    return( 
+                        <tr key={el.id}>
+                            <td>{el.id}</td>
+                            <td>{el.firtsName}</td>
+                            <td>{el.lastName}</td>
+                            <td>{el.age}</td>
                             <td>
                                 <button>
                                     <i className="fa-solid fa-trash"></i>

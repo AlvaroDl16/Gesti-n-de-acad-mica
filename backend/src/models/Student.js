@@ -17,7 +17,7 @@ const studentModel = (dataBase) => {
             allowNull: false
         },
         age:{
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: null
         },
         gender:{

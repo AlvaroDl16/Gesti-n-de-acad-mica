@@ -1,4 +1,4 @@
-import { GET_STUDENTS,GET_USERS } from "../actions_tipes/actions_types";
+import { GET_STUDENTS, GET_USERS, POST_STUDENT } from "../actions_tipes/actions_types";
 
 const initialState = {
     students: [],
@@ -17,6 +17,11 @@ function reducer(state = initialState, action) {
             return{
                 ...state,
                 students: action.payload
+            }
+
+        case POST_STUDENT:
+            return{
+                ...state,
             }
         
         default: 
