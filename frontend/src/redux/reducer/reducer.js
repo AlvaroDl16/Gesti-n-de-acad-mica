@@ -1,8 +1,9 @@
-import { GET_STUDENTS, GET_USERS, POST_STUDENT } from "../actions_tipes/actions_types";
+import { GET_STUDENTS, GET_USERS, POST_STUDENT, POST_TEACHER } from "../actions_tipes/actions_types";
 
 const initialState = {
     students: [],
-    users: []
+    users: [],
+    teachers: []
 }
 
 function reducer(state = initialState, action) {
@@ -20,6 +21,10 @@ function reducer(state = initialState, action) {
             }
 
         case POST_STUDENT:
+            return{
+                ...state,
+            }
+        case POST_TEACHER:
             return{
                 ...state,
             }

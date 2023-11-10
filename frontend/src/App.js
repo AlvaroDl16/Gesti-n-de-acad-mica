@@ -6,11 +6,12 @@ import './App.css';
 // import Users from './components/Users/Users';
 import Students from './components/Home/Students';
 import CreateStudent from './components/formCreateStudent/createStudent';
+import CreateTeacher from './components/formCreateTeacher/createTeacher';
 
 function App() {
   return (
     <div className="App">
-      <Students/>
+      <CreateTeacher/>
       <CreateStudent/>
     </div>
   );
