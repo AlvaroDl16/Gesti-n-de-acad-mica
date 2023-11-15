@@ -7,12 +7,13 @@ import './App.css';
 import Students from './components/Home/Students';
 import CreateStudent from './components/formCreateStudent/createStudent';
 import CreateTeacher from './components/formCreateTeacher/createTeacher';
+import Teachers from './components/Home/Teachers';
 
 function App() {
   return (
     <div className="App">
       <CreateTeacher/>
-      <CreateStudent/>
+      <Teachers/>
     </div>
   );
 }

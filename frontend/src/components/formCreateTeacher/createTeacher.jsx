@@ -25,47 +25,56 @@ const CreateTeacher = () => {
     const handleSubmit = (e)=>{
         e.preventDefault();
         dispatch(postTeacher(input));
-        alert("estudiante creado");
+        alert("DATOS DEL DOCENTE INTRODUCIDOS CORRECTAMENTE");
     }
 
     return(
+        
         <div>
-            <h2>Formulario de craecion de profesores</h2>
+            <h2>FORMULARIO DE CREACION DE PROFESORES</h2>
             <form onSubmit={handleSubmit}>
                 <fieldset>
-                    <legend>Datos del profesor</legend>
-                    <input 
+                    <legend>introduzca sus datos</legend>
+                    <table height={400} border="1" align="center" bgcolor="aquamarine" width={600}>
+                        <thead>
+                    <tr>
+                    <td>Nombre:</td>
+                    <td><input 
                     type="text" 
                     value={input.firtsName}
                     name="firtsName"
-                    placeholder="Nombre del profe"
-                    onChange={handleInputChange} />
-                    <br/>
-                    <input type="text"
+                    onChange={handleInputChange} size={50}/>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>Apellido:</td><td><input type="text"
                     value={input.lastName}
                     name="lastName"
-                    placeholder="apellidos del profesor"
-                    onChange={handleInputChange}
-                    /><br/>
-                    <input type="text"
+                    onChange={handleInputChange} size={50}
+                    /></td></tr>
+                    <tr>
+                    <td>Edad:</td><td><input type="text"
                     value={input.age}
                     name="age"
-                    placeholder="edad del profesor"
-                    onChange={handleInputChange}
-                    /><br/>
-                    <input type="text"
+                    onChange={handleInputChange} size={50}
+                    /></td></tr>
+                    <tr>
+                    <td>Genero:</td><td><input type="text"
                     value={input.gender}
                     name="gender"
-                    placeholder="genero del profesor"
-                    onChange={handleInputChange}
-                    /><br/>
-                    <input type="text"
+                    onChange={handleInputChange} size={50}
+                    /></td></tr>
+                    <tr>
+                    <td>E-mail:</td><td><input type="text"
                     value={input.email}
                     name="email"
-                    placeholder="correo del profesor"
-                    onChange={handleInputChange}
-                    /><br/>
-                    <button type="submit">Crear</button>
+                    onChange={handleInputChange} size={50}
+                    /></td></tr>
+                    <tr>
+                    <td></td>
+                    <td><button type="submit">Crear</button></td></tr>
+                    </thead>
+                    </table>
                 </fieldset>
             </form>
         </div>
