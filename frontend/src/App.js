@@ -7,14 +7,26 @@ import './App.css';
 import Students from './components/Home/Students';
 import CreateStudent from './components/formCreateStudent/createStudent';
 import CreateTeacher from './components/formCreateTeacher/createTeacher';
-import Teachers from './components/Home/Teachers';
+import Teachers from './components/teachers/Teachers';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import LandingPage from './components/landingPage/landingPage';
+import UpdateStudent from './components/formUpdateStudent/updateStudent';
+
 
 function App() {
   return (
-    <div className="App">
-      <CreateTeacher/>
-      <Teachers/>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path='/' element={<LandingPage></LandingPage>} />
+          <Route path='/formCreateTeacher' element={<CreateTeacher/>} />
+          <Route path='/formCreateStudent' element={<CreateStudent/>} />
+          <Route path='/Home' element={<Students/>} />
+          <Route path='/teachers' element={<Teachers/>} />
+          <Route path='/formUpdateStudent' element={<UpdateStudent/>} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

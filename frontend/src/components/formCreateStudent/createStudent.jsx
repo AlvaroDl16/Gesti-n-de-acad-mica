@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postStudent } from "../../redux/actions/actions";
+import styles from "./create_Student.module.css";
+import Navbar from "../navbar/navbar";
 
 const CreateStudent = ()=>{
 
@@ -29,49 +31,58 @@ const CreateStudent = ()=>{
     }
 
     return (
-        <div>
+            
+        <div >
+        <Navbar/>
+        <div className={styles.form_wrapper}>
         <h1>Formulario de creacion del estudiante</h1>
         <form onSubmit={handleSubmit}>
             <fieldset>
                 <legend>Datos del estudiante</legend>
-                <input 
+                <input
+                className={styles.input} 
                 type="text" 
                 value={input.firtsName}
                 name="firtsName"
                 placeholder="Nombre del estudiante"
                 onChange={handleInputChange} />
                 <br/>
-                <input 
+                <input
+                className={styles.input} 
                 type="text" 
                 value={input.lastName}
                 name="lastName"
                 placeholder="Apellido del estudiante"
                 onChange={handleInputChange} />
                 <br/>
-                <input 
+                <input
+                className={styles.input} 
                 type="text" 
                 value={input.gender}
                 name="gender"
                 placeholder="genero del estudiante"
                 onChange={handleInputChange} />
                 <br/>
-                <input 
+                <input
+                className={styles.input} 
                 type="text" 
                 value={input.age}
                 name="age"
                 placeholder="edad del estudiante"
                 onChange={handleInputChange} />
                 <br/>
-                <input 
+                <input
+                className={styles.input} 
                 type="text" 
                 value={input.email}
                 name="email"
                 placeholder="email del estudiante"
                 onChange={handleInputChange} />
                 <br/>
-                <button type="submit">Crear estudiante</button>
+                <button className={styles.button} type="submit">Crear estudiante</button>
             </fieldset>
         </form>
+        </div>
         </div>
     );
 }

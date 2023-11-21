@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { getTeachers } from "../../redux/actions/actions";
+import { Link } from "react-router-dom";
 
 const Teachers = ()=>{
     const dispatch = useDispatch();
@@ -44,6 +45,7 @@ const Teachers = ()=>{
                     </tbody>
                 </table>
             </div>
+            <Link to="/">volver</Link>
         </div>
     )
 }

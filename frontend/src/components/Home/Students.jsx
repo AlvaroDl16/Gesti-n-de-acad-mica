@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { getStudents } from "../../redux/actions/actions";
+import { Link } from "react-router-dom";
+import styles from "./show_Students.module.css";
+import Navbar from "../navbar/navbar";
 
 const Students = ()=>{
     const dispatch = useDispatch();
@@ -11,10 +14,11 @@ const Students = ()=>{
 
     return(
         <div>
-            <h1>Students</h1>
+            <Navbar/>
+            <h3>Students</h3>
             <div>
-                <table>
-                    <thead>
+                <table className={styles.table}>
+                    <thead className={styles.thead}>
                         <tr>
                             <th>id</th>
                             <th>primer nombre</th>
@@ -23,7 +27,7 @@ const Students = ()=>{
                             <th>acciones</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className={styles.tbody}>
             {
                 hola.length>=1 && hola.map(el=>{
                     return( 
@@ -36,6 +40,9 @@ const Students = ()=>{
                                 <button>
                                     <i className="fa-solid fa-trash"></i>
                                 </button>
+                                <Link to="/updateStudent">
+                                    EDITAR
+                                </Link>
                             </td>
                         </tr>
                     )

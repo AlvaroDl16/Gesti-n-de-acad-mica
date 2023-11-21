@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1{
+    color: #fff;
+}
+.form_wrapper{
+    
+    background-color: #0062ff;
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 40px 20px;
+}
+fieldset{
+    border: none;
+    display: grid;
+}
+legend{
+    color: #fff;
+    margin: 15px 0;
+}
+.input, .button{
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: 2px solid transparent;
+
+}
+.button{
+    background-color: #4bed4b;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1em;
+    transition: background-color .3s;
+}
+.button:hover{
+    background-color: #44d044;
+    cursor: pointer;
+}
+.input:focus{
+    border: 2px solid #4bed4b;
+}

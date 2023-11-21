@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow-x: hidden;
+}
+.table{
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+.thead{
+    background-color: #0062ff;
+}
+.thead th{
+    padding: 10px;
+    color: #fff;
+    text-align: left;
+}
+.tbody tr:nth-of-type(even){
+    background-color: #eeecec;
+}
+.tbody td{
+    text-align: left;
+}
+.tbody td:nth-of-type(5){
+    text-align: center;
+}
