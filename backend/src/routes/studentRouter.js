@@ -1,5 +1,10 @@
 const {Router} = require("express");
-const {createStudent, getStudents, findStudent, updateStudent, deleteStudent} = require("../controllers/studentControllers");
+const {createStudent,
+     getStudents, 
+     findStudent,
+     updateStudent, 
+     deleteStudent, 
+     findStudentById} = require("../controllers/studentControllers");
 const studentRouter = Router();
 
 studentRouter.post("/", async(req, res) => {
@@ -19,11 +24,24 @@ studentRouter.get("/", async(req, res) => {
     try{
         if(lastName){
             student = await findStudent(lastName);
-        } else{
+        }else{
             student = await getStudents();
         }
         res.status(200).json(student);
     } catch(error){
+        res.status(400).json({error: error.message});
+    }
+})
+
+studentRouter.get("/:id", async(req, res)=>{
+    const {id} = req.params;
+    let student;
+    try {
+        if (id) {
+            student = await findStudentById(id);
+        }
+        res.status(200).json(student);
+    } catch (error) {
         res.status(400).json({error: error.message});
     }
 })

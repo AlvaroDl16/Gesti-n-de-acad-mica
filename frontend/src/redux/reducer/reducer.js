@@ -1,7 +1,8 @@
-import { GET_STUDENTS, GET_TEACHER, GET_USERS, POST_STUDENT, POST_TEACHER } from "../actions_tipes/actions_types";
+import { GET_STUDENTS, GET_TEACHER, GET_USERS, POST_STUDENT, POST_TEACHER, GET_STUDENTBYID, DELETE_STUDENTBYID } from "../actions_tipes/actions_types";
 
 const initialState = {
     students: [],
+    studentById: {},
     users: [],
     teachers: []
 }
@@ -20,10 +21,21 @@ function reducer(state = initialState, action) {
                 students: action.payload
             }
 
+        case GET_STUDENTBYID:
+            return{
+                ...state,
+                studentById: action.payload
+            }
+
         case POST_STUDENT:
             return{
                 ...state,
             }
+        case DELETE_STUDENTBYID:
+            return {
+                ...state,
+                students: state.students.filter(student => student.id !== action.payload)
+            };
         case POST_TEACHER:
             return{
                 ...state,

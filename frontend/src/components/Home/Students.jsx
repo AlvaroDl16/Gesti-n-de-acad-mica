@@ -1,16 +1,25 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector} from "react-redux";
-import { getStudents } from "../../redux/actions/actions";
-import { Link } from "react-router-dom";
+import { getStudents, deleteStudent } from "../../redux/actions/actions";
 import styles from "./show_Students.module.css";
 import Navbar from "../navbar/navbar";
+import { Link } from "react-router-dom";
 
 const Students = ()=>{
     const dispatch = useDispatch();
     const hola = useSelector(state => state.students);
+
     useEffect(()=>{
         dispatch(getStudents())
-    },[])
+    },[dispatch])
+
+    const handleDelete = async (id) => {
+        if (window.confirm("¿Estás seguro de eliminar este estudiante?")) {
+            await dispatch(deleteStudent(id));
+        }
+    };
+
+    const sortedStudents = [...hola].sort((a, b) => a.id - b.id);
 
     return(
         <div>
@@ -29,7 +38,7 @@ const Students = ()=>{
                     </thead>
                     <tbody className={styles.tbody}>
             {
-                hola.length>=1 && hola.map(el=>{
+                sortedStudents.length>=1 && sortedStudents.map(el=>{
                     return( 
                         <tr key={el.id}>
                             <td>{el.id}</td>
@@ -37,12 +46,10 @@ const Students = ()=>{
                             <td>{el.lastName}</td>
                             <td>{el.age}</td>
                             <td>
-                                <button>
+                                <button  onClick={() => handleDelete(el.id)}>
                                     <i className="fa-solid fa-trash"></i>
                                 </button>
-                                <Link to="/updateStudent">
-                                    EDITAR
-                                </Link>
+                                <Link to={`/formUpdateStudent/${el.id}`}>Editar</Link>
                             </td>
                         </tr>
                     )

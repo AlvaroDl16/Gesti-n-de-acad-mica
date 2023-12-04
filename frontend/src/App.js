@@ -23,7 +23,7 @@ function App() {
           <Route path='/formCreateStudent' element={<CreateStudent/>} />
           <Route path='/Home' element={<Students/>} />
           <Route path='/teachers' element={<Teachers/>} />
-          <Route path='/formUpdateStudent' element={<UpdateStudent/>} />
+          <Route path='/formUpdateStudent/:id' element={<UpdateStudent/>} />
         </Routes>
       </div>
     </BrowserRouter>
